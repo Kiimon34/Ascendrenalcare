@@ -1,0 +1,546 @@
+---
+import '../styles/global.css';
+
+const business = {
+  name: "Ascend Renal Care",
+  email: "Info@ascendrenalcare.com",
+  phone: "317-400-4826",
+  address: "8315 East 56th Street, Suite #120, Indianapolis, IN 46216",
+  hours: "Mon • Wed & Fri: 5:00 AM – 4:30 PM",
+  formspreeId: "YOUR_FORMSPREE_ID_HERE"
+};
+
+const services = [
+  {
+    title: "In-Center Hemodialysis",
+    badge: "Four-Station Clinic",
+    desc: "Intimate, cubicle-style care environment designed to feel like family. Direct, continuous clinical oversight with personalized nurse-to-patient attention.",
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+  },
+  {
+    title: "Home Therapy Support",
+    badge: "Comprehensive Training",
+    desc: "Personalized home dialysis onboarding, caregiver coaching, and routine monitoring designed for flexibility, dignity, and patient independence.",
+    icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+  },
+  {
+    title: "Nursing Home Programs",
+    badge: "Bedside Delivery",
+    desc: "In-house dialysis treatments delivered directly inside partner nursing facilities, eliminating stressful ambulance transfers and treatment delays.",
+    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+  }
+];
+
+const steps = [
+  {
+    number: "01",
+    title: "Initial Consultation",
+    desc: "Speak directly with our clinical coordinator to review your nephrologist's orders, scheduling preferences, and verify coverage.",
+    accent: "border-[#8A3B28] text-[#8A3B28]"
+  },
+  {
+    number: "02",
+    title: "Tour & Clinical Intake",
+    desc: "Visit our quiet 4-station facility in person, meet your primary care nursing team, and finalize your tailored care schedule.",
+    accent: "border-[#7DB5DC] text-[#7DB5DC]"
+  },
+  {
+    number: "03",
+    title: "First Day of Care",
+    desc: "Settle into your dedicated station or begin one-on-one home therapy instruction with steady, unrushed clinical guidance.",
+    accent: "border-[#C59B4B] text-[#C59B4B]"
+  }
+];
+
+const team = [
+  {
+    name: "Yvette Dupree, BSN, RN, CEO",
+    role: "Facility Administrator",
+    initials: "YD"
+  },
+  {
+    name: "Richard Russell, Sr., CEO",
+    role: "Director of Biomedical Services",
+    initials: "RR"
+  },
+  {
+    name: "Meg Allen, RD",
+    role: "Dietitian",
+    initials: "MA"
+  },
+  {
+    name: "Turkessa Guthrie, MSW",
+    role: "Social Worker",
+    initials: "TG"
+  }
+];
+
+const faqs = [
+  {
+    q: "What insurance providers do you accept?",
+    a: "We accept Medicare, Indiana Medicaid, commercial insurance plans, and private pay. Our intake team works directly with your provider to verify full coverage details prior to your first treatment."
+  },
+  {
+    q: "What makes a 4-station clinic different from traditional centers?",
+    a: "Large corporate dialysis centers often run 16 to 30 stations in cavernous open halls. Our 4-station environment guarantees elevated nurse-to-patient ratios, lower noise, reduced infection exposure, and a quiet, family atmosphere."
+  },
+  {
+    q: "How does Home Dialysis training work?",
+    a: "Our clinical staff works with you and your caregiver one-on-one until everyone feels completely prepared and confident. We coordinate equipment installation, direct medical deliveries, and provide 24/7 on-call telephone support."
+  },
+  {
+    q: "Do you coordinate placement on the kidney transplant waitlist?",
+    a: "Yes. Our Medical Director and dedicated Social Worker coordinate directly with regional transplant programs across Indiana to complete necessary workups, documentation, and routine status checks."
+  }
+];
+
+const schemaJson = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": business.name,
+  "telephone": business.phone,
+  "email": business.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "8315 East 56th Street, Suite #120",
+    "addressLocality": "Indianapolis",
+    "addressRegion": "IN",
+    "postalCode": "46216",
+    "addressCountry": "US"
+  },
+  "openingHours": "Mo,We,Fr 05:00-16:30"
+};
+---
+
+<html lang="en" class="scroll-smooth bg-[#121212]">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{business.name} | Hemodialysis & Home Therapy Indianapolis</title>
+    <meta name="description" content="Intimate, deficiency-free dialysis facility in Indianapolis providing in-center hemodialysis, home therapy training, and nursing home care." />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Local SEO Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaJson)} />
+
+    <style>
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+      .scroll-reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="bg-[#121212] text-[#F3F4F6] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#8A3B28] selection:text-white antialiased">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#121212]/95 backdrop-blur-md border-b border-white/10 px-6 py-4 transition-all duration-300">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <a href="#" class="font-['Playfair_Display',serif] text-xl md:text-2xl font-bold tracking-tight text-white">
+          Ascend <span class="text-[#8A3B28]">Renal Care</span>
+        </a>
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+          <a href="#about" class="hover:text-white transition">About</a>
+          <a href="#services" class="hover:text-white transition">Services</a>
+          <a href="#process" class="hover:text-white transition">Process</a>
+          <a href="#team" class="hover:text-white transition">Team</a>
+          <a href="#faq" class="hover:text-white transition">FAQ</a>
+          <a href="#contact" class="hover:text-white transition">Contact</a>
+        </nav>
+        <a href={`tel:${business.phone}`} class="bg-[#8A3B28] hover:bg-[#722f20] text-white text-xs md:text-sm font-semibold tracking-wider uppercase px-4 py-2.5 rounded transition">
+          {business.phone}
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[85vh] flex items-center justify-center pt-28 pb-20 px-6 bg-[#0E0E0E] overflow-hidden border-b border-white/10">
+      <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#8A3B28_1px,transparent_1px)] [background-size:20px_20px]"></div>
+      
+      <div class="relative z-10 max-w-4xl mx-auto text-center scroll-reveal">
+        <div class="inline-block border border-[#7DB5DC]/30 bg-[#7DB5DC]/10 px-4 py-1.5 rounded-full mb-6">
+          <p class="text-[#7DB5DC] font-semibold text-xs md:text-sm tracking-widest uppercase">
+            Medicare • Medicaid • Commercial Insurance • Private Pay
+          </p>
+        </div>
+        
+        <h1 class="font-['Playfair_Display',serif] text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight leading-tight mb-8">
+          Hemodialysis and <br class="hidden sm:block" />Home Therapy
+        </h1>
+        
+        <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed mb-10">
+          Individualized treatments for End-Stage Renal Disease (ESRD) and Acute Kidney Injury (AKI). State-certified deficiency-free clinical care in an intimate setting.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#contact" class="w-full sm:w-auto bg-[#8A3B28] text-white font-semibold px-8 py-4 uppercase tracking-wider text-xs rounded hover:bg-[#722f20] transition shadow-lg shadow-[#8A3B28]/20">
+            Request a Consultation
+          </a>
+          <a href="#services" class="w-full sm:w-auto border border-white/20 text-gray-300 hover:text-white hover:border-white px-8 py-4 uppercase tracking-wider text-xs rounded transition">
+            Explore Services
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Pillars Banner -->
+    <section class="border-b border-white/10 bg-[#161616] py-10 px-6">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center scroll-reveal">
+        <div class="space-y-1">
+          <p class="font-['Playfair_Display',serif] text-2xl sm:text-3xl font-bold tracking-widest text-[#7DB5DC]">EMPATHETIC</p>
+          <p class="text-xs uppercase tracking-wider text-gray-400">Patient-first clinical approach</p>
+        </div>
+        <div class="space-y-1">
+          <p class="font-['Playfair_Display',serif] text-2xl sm:text-3xl font-bold tracking-widest text-gray-200">PROFICIENT</p>
+          <p class="text-xs uppercase tracking-wider text-gray-400">90+ years collective kidney care</p>
+        </div>
+        <div class="space-y-1">
+          <p class="font-['Playfair_Display',serif] text-2xl sm:text-3xl font-bold tracking-widest text-[#C59B4B]">DEDICATED</p>
+          <p class="text-xs uppercase tracking-wider text-gray-400">Transplant waitlist advocacy</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-[#121212] py-24 px-6 border-b border-white/10">
+      <div class="max-w-4xl mx-auto space-y-10 scroll-reveal">
+        <div class="border-l-4 border-[#8A3B28] pl-5">
+          <span class="text-xs uppercase tracking-widest text-[#7DB5DC] font-semibold">Our Distinction</span>
+          <h2 class="font-['Playfair_Display',serif] text-3xl sm:text-4xl font-bold text-white mt-1">
+            About Ascend Renal Care
+          </h2>
+        </div>
+        
+        <p class="text-base sm:text-lg leading-relaxed text-gray-300">
+          Our facility has earned distinction as a <strong class="text-white font-semibold">deficiency-free facility</strong> by the State of Indiana. Backed by more than 90 years of combined dialysis experience, our clinical staff consults, initiates, and manages customized renal therapies designed around the person, not just the diagnosis.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-6 pt-2">
+          <div class="bg-[#181818] border border-white/10 p-6 rounded relative scroll-reveal">
+            <div class="w-2 h-2 rounded-full bg-[#8A3B28] absolute top-6 right-6"></div>
+            <h3 class="font-['Playfair_Display',serif] font-bold text-xl mb-2 text-white">Intimate Setting</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              We operate an intimate, cubicle-style four-station clinic designed to feel like family. No loud factory-style treatment floors—just quiet, attentive oversight.
+            </p>
+          </div>
+          <div class="bg-[#181818] border border-white/10 p-6 rounded relative scroll-reveal">
+            <div class="w-2 h-2 rounded-full bg-[#7DB5DC] absolute top-6 right-6"></div>
+            <h3 class="font-['Playfair_Display',serif] font-bold text-xl mb-2 text-white">Direct Medical Advocacy</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              Led by an experienced nephrologist specializing in aggressive hypertension management, long-term cardiovascular stability, and placement on the kidney transplant list.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="bg-[#0E0E0E] py-24 px-6 border-b border-white/10">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
+          <span class="text-xs uppercase tracking-widest text-[#7DB5DC] font-semibold">Focused Treatment</span>
+          <h2 class="font-['Playfair_Display',serif] text-3xl sm:text-4xl font-bold text-white mt-1">
+            Clinical Care Programs
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {services.map((svc) => (
+            <div class="bg-[#161616] border border-white/10 hover:border-[#8A3B28]/60 p-8 rounded flex flex-col justify-between transition duration-300 group scroll-reveal">
+              <div>
+                <div class="w-12 h-12 rounded bg-[#1F1F1F] text-[#7DB5DC] flex items-center justify-center mb-6 group-hover:bg-[#8A3B28] group-hover:text-white transition duration-300">
+                  <svg class="w-6 h-6 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                    <path d={svc.icon} />
+                  </svg>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-[#C59B4B]">{svc.badge}</span>
+                <h3 class="font-['Playfair_Display',serif] text-xl font-bold text-white mt-1 mb-3">{svc.title}</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">{svc.desc}</p>
+              </div>
+              <div class="pt-6 mt-6 border-t border-white/5">
+                <a href="#contact" class="text-xs uppercase tracking-wider font-semibold text-gray-300 group-hover:text-[#7DB5DC] transition inline-flex items-center gap-1">
+                  Inquire Program →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Onboarding Process Section -->
+    <section id="process" class="bg-[#141414] py-20 px-6 border-b border-white/10">
+      <div class="max-w-5xl mx-auto scroll-reveal">
+        <div class="text-center mb-14">
+          <span class="text-xs uppercase tracking-widest text-[#7DB5DC] font-semibold">Starting Care</span>
+          <h2 class="font-['Playfair_Display',serif] text-3xl sm:text-4xl font-bold text-white mt-1">
+            Seamless Transition to Ascend
+          </h2>
+          <p class="text-xs sm:text-sm text-gray-400 mt-2">Clear, straightforward steps from inquiry to regular treatment.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {steps.map((step) => (
+            <div class={`bg-[#191919] p-7 rounded border-t-2 ${step.accent.split(' ')[0]} border-white/10 flex flex-col justify-between scroll-reveal`}>
+              <div>
+                <span class={`text-4xl font-bold font-['Playfair_Display',serif] ${step.accent.split(' ')[1]}`}>
+                  {step.number}
+                </span>
+                <h3 class="font-bold text-white text-lg mt-3 mb-2">{step.title}</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Meet The Team -->
+    <section id="team" class="bg-[#121212] py-24 px-6 border-b border-white/10">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
+          <span class="text-xs uppercase tracking-widest text-[#7DB5DC] font-semibold">Leadership & Administration</span>
+          <h2 class="font-['Playfair_Display',serif] text-3xl sm:text-4xl font-bold text-white mt-1">
+            Meet Our Care Team
+          </h2>
+          <p class="text-gray-400 text-xs sm:text-sm mt-3">Experienced specialists guiding your day-to-day dialysis plan.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {team.map((member) => (
+            <div class="bg-[#171717] border border-white/10 p-6 rounded text-center flex flex-col items-center justify-center hover:border-white/20 transition duration-300 scroll-reveal">
+              <div class="w-20 h-20 rounded-full bg-[#202020] border-2 border-[#8A3B28] flex items-center justify-center mb-4">
+                <span class="font-['Playfair_Display',serif] font-bold text-xl text-[#F3F4F6] tracking-wider">
+                  {member.initials}
+                </span>
+              </div>
+              <h3 class="font-['Playfair_Display',serif] text-base font-bold text-white leading-snug">
+                {member.name}
+              </h3>
+              <p class="text-xs text-[#7DB5DC] mt-1 font-medium tracking-wide">
+                {member.role}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq" class="bg-[#0E0E0E] py-24 px-6 border-b border-white/10">
+      <div class="max-w-4xl mx-auto scroll-reveal">
+        <div class="border-l-4 border-[#8A3B28] pl-5 mb-12">
+          <span class="text-xs uppercase tracking-widest text-[#7DB5DC] font-semibold">Common Questions</span>
+          <h2 class="font-['Playfair_Display',serif] text-3xl sm:text-4xl font-bold text-white mt-1">
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <details class="group bg-[#161616] border border-white/10 rounded p-5 transition [&_svg]:open:-rotate-180">
+              <summary class="flex justify-between items-center cursor-pointer font-semibold text-white list-none text-sm sm:text-base">
+                <span>{faq.q}</span>
+                <svg class="w-5 h-5 text-[#7DB5DC] transition duration-300 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </summary>
+              <p class="text-xs sm:text-sm text-gray-400 mt-4 leading-relaxed border-t border-white/5 pt-4">
+                {faq.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact, Location & Form Section -->
+    <section id="contact" class="bg-[#121212] py-24 px-6">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Details & Interactive Map -->
+        <div class="lg:col-span-5 space-y-6 scroll-reveal">
+          <div class="border-l-4 border-[#8A3B28] pl-4">
+            <span class="text-xs uppercase tracking-widest text-[#7DB5DC] font-semibold">Get In Touch</span>
+            <h2 class="font-['Playfair_Display',serif] text-3xl sm:text-4xl font-bold text-white mt-1">
+              Let’s Connect
+            </h2>
+          </div>
+          
+          <p class="text-gray-400 text-sm leading-relaxed">
+            We accept Medicare, Medicaid, and private commercial insurance. Call directly or visit our four-station facility in Indianapolis.
+          </p>
+
+          <div class="space-y-4 text-sm pt-2">
+            <div>
+              <p class="text-gray-500 uppercase tracking-wider text-xs font-semibold">Direct Phone</p>
+              <a href={`tel:${business.phone}`} class="text-white text-lg font-semibold hover:text-[#7DB5DC] transition">
+                {business.phone}
+              </a>
+            </div>
+            <div>
+              <p class="text-gray-500 uppercase tracking-wider text-xs font-semibold">Direct Email</p>
+              <a href={`mailto:${business.email}`} class="text-white hover:text-[#7DB5DC] transition">
+                {business.email}
+              </a>
+            </div>
+            <div>
+              <p class="text-gray-500 uppercase tracking-wider text-xs font-semibold">Facility Location</p>
+              <p class="text-gray-300">{business.address}</p>
+              <a 
+                href="https://maps.google.com/?q=8315+East+56th+Street+Suite+120+Indianapolis+IN+46216" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 text-xs uppercase tracking-wider text-[#7DB5DC] hover:underline mt-1 font-semibold"
+              >
+                Open in Google Maps →
+              </a>
+            </div>
+            <div>
+              <p class="text-gray-500 uppercase tracking-wider text-xs font-semibold">Hours of Operation</p>
+              <p class="text-gray-300">{business.hours}</p>
+            </div>
+          </div>
+
+          <!-- Embedded Map Card -->
+          <div class="w-full h-44 rounded overflow-hidden border border-white/10 mt-6 grayscale contrast-125 opacity-80 hover:opacity-100 hover:grayscale-0 transition duration-300">
+            <iframe 
+              title="Ascend Renal Care Location Map"
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              loading="lazy" 
+              allowfullscreen 
+              referrerpolicy="no-referrer-when-downgrade" 
+              src="https://www.google.com/maps?q=8315+East+56th+Street+Suite+120+Indianapolis+IN+46216&output=embed">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Formspree Request Card -->
+        <div class="lg:col-span-7 bg-[#161616] p-8 sm:p-10 rounded border border-[#C59B4B]/30 relative shadow-2xl scroll-reveal">
+          <div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#C59B4B]"></div>
+          <div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#C59B4B]"></div>
+
+          <h3 class="font-['Playfair_Display',serif] text-2xl font-bold text-white mb-2">
+            Schedule a Consultation
+          </h3>
+          <p class="text-xs text-gray-400 mb-8">Reach our administrative team to confirm coverage, arrange an intake assessment, or tour the facility.</p>
+
+          <form action={`https://formspree.io/f/${business.formspreeId}`} method="POST" class="space-y-6">
+            <div>
+              <label for="name" class="block text-xs uppercase tracking-wider font-semibold text-gray-400 mb-2">Patient / Family Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required 
+                class="w-full bg-transparent border-b border-gray-600 focus:border-white py-2 text-white outline-none transition text-sm"
+                placeholder="Jane Doe"
+              />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="email" class="block text-xs uppercase tracking-wider font-semibold text-gray-400 mb-2">Email Address</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required 
+                  class="w-full bg-transparent border-b border-gray-600 focus:border-white py-2 text-white outline-none transition text-sm"
+                  placeholder="jane@example.com"
+                />
+              </div>
+              <div>
+                <label for="phone" class="block text-xs uppercase tracking-wider font-semibold text-gray-400 mb-2">Phone Number</label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone" 
+                  required 
+                  class="w-full bg-transparent border-b border-gray-600 focus:border-white py-2 text-white outline-none transition text-sm"
+                  placeholder="(317) 000-0000"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="notes" class="block text-xs uppercase tracking-wider font-semibold text-gray-400 mb-2">Care Needs or Questions (Optional)</label>
+              <textarea 
+                id="notes" 
+                name="notes" 
+                rows="3" 
+                class="w-full bg-transparent border-b border-gray-600 focus:border-white py-2 text-white outline-none transition text-sm"
+                placeholder="In-center inquiry, home training, Medicare / insurance question..."
+              ></textarea>
+            </div>
+
+            <button 
+              type="submit" 
+              class="w-full bg-[#8A3B28] hover:bg-[#722f20] text-white font-semibold py-4 text-xs uppercase tracking-widest transition duration-200 rounded"
+            >
+              Submit Consultation Request
+            </button>
+
+            <!-- HIPAA & Clinical Disclaimer Notice -->
+            <p class="text-[11px] text-gray-500 leading-relaxed pt-2 text-center">
+              <strong>Notice:</strong> Submitting this form does not establish a provider-patient relationship. Please do not submit confidential medical records or emergency inquiries through this form. If you are experiencing an acute medical emergency, please dial 911 immediately.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-[#0A0A0A] py-10 px-6 text-center text-xs text-gray-500">
+      <div class="max-w-4xl mx-auto space-y-2">
+        <p class="font-['Playfair_Display',serif] text-base text-gray-300 font-semibold">{business.name}</p>
+        <p>{business.address} • {business.phone}</p>
+        <p class="pt-4 text-gray-600">© {new Date().getFullYear()} Ascend Renal Care. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Mobile Call Floating Action -->
+    <a 
+      href={`tel:${business.phone}`} 
+      aria-label="Call Ascend Renal Care" 
+      class="fixed bottom-6 right-6 z-40 bg-[#7DB5DC] hover:bg-[#68a4cd] text-[#0E0E0E] p-4 rounded-full shadow-xl sm:hidden flex items-center justify-center transition active:scale-95"
+    >
+      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/>
+      </svg>
+    </a>
+
+    <!-- IntersectionObserver Scroll Script -->
+    <script>
+      const observerCallback: IntersectionObserverCallback = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          } else {
+            entry.target.classList.remove('is-visible');
+          }
+        });
+      };
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.12
+      };
+
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+      document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+New-Item -Path .cursorrules -ItemType File -Value @"
+You are an expert web engineer building Ascend Renal Care.
+- Stack: Astro (Static output), Tailwind CSS, Formspree, Vercel.
+- Directives:
+  - Write pure Astro components (.astro) whenever possible. Avoid unnecessary React/Vue frameworks.
+  - Use clean Tailwind utility classes.
+  - Follow accessible HTML standards and mobile-first layouts.
+  - Keep the tone direct, professional, and clinical-focused.
+"@
